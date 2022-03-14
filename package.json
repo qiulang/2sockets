@@ -1,0 +1,19 @@
+{
+  "name": "2so",
+  "version": "1.0.0",
+  "description": "demonstrate when 1 global socket.io client is wrongly used for 2 connections",
+  "scripts": {
+    "start":"DEBUG=so:* node server.js",
+    "test": "DEBUG=so:* node client.js"
+  },
+  "keywords": [
+    "socket.io",
+    "global variable"
+  ],
+  "author": "qiulang",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^4.4.1",
+    "socket.io-client": "^4.4.1"
+  }
+}
