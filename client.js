@@ -3,15 +3,14 @@ const { debug } = require("debug")
 const log = debug("so:client")
 const server = 'http://localhost:3000'
 const user_id = '1_2_1000'
-// let socket
+let socket
 let wsBit = 0
-let wsTimeout
 
 function setupWS(client) {
-  let socket = io(server, { transports: ['websocket']})
-//   socket = io(server, { transports: ['websocket'],autoUnref: true })
+//   let socket = io(server, { transports: ['websocket']}) //correct, should use a function scope variable
+  socket = io(server, { transports: ['websocket']}) //wrong!! Should NOT use a global variable
   socket.on('connect', function () {
-    log(`Connected to local ws server with ${socket.id}`)
+    log(`${client} connected to local ws server with ${socket.id}`)
     socket.emit('login', { user_id, client }, reply => {
         wsBit +=1
         log(`Current connection:${wsBit}`) 
